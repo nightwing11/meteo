@@ -1,4 +1,3 @@
 # meteo
-
-' cd /meteo 
-' ionic serve
+<code> cd /meteo </code> 
+<code> ionic serve </code>
