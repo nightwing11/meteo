@@ -22,6 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
+//menu
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -29,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+  
   })
 
 
@@ -38,7 +39,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/accueil.html',
-          controller: 'PlaylistsCtrl'
         }
       }
     })
@@ -49,7 +49,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/upload',
       views: {
         'menuContent': {
-          templateUrl: 'templates/upload.html'
+          templateUrl: 'templates/upload.html',
+          controller: 'Ctrlupload'
+
         }
       }
     });

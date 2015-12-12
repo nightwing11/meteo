@@ -1,58 +1,31 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+// gestion d'uplaod de fichier 
+.controller('Ctrlupload', function($scope) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+   $scope.filepathChooser = function() {
+    window.plugins.mfilechooser.open([], function (uri) {
+       //Here uri provides the selected file path.
+    console.log('file path', uri);
+     alert(uri);
 
-  // Form data for the login modal
-  $scope.loginData = {};
+     // $cordovaFile.copyFile(cordova.file.dataDirectory, "file.txt", cordova.file.tempDirectory, "new_file.txt")
+     //  .then(function (success) {
+     //    // success
+     //  }, function (error) {
+     //    // error
+     //  });
 
-  // Create the login modal that we will use later
-
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+   
+  }, function (error) {
+      console.log('Error', error);
+   alert(error);
+  });
+ };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
-
-
-module.controller('MyCtrl', function($scope, $cordovaDatePicker) {
+//Date du jour 
+.controller('MyCtrl', function($scope, $cordovaDatePicker) {
 
   var options = {
     date: new Date(),
